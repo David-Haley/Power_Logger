@@ -1,0 +1,12 @@
+NO.,JSON KeyWord,Data Source,String,Modbus Slave Addr.,Modbus Function,Modbus RegAddr,645 ID,645 Type, Data Len,4 Bytes Order,Data Format,Position of Bool,Decimal Position,Unit,With Qutation,Query Period,645 version, Func sel, JSON array, substract, divide, FE number
+1.,CN_Time,Current Time,,1,3,0,000000000001,00009410,2,0,Unsigned int,0,0,,0,100,97,0,0,0,1.000000,0,0
+2.,Voltage,Modbus RTU,,1,3,0,000000000001,00009410,4,1,Unsigned int,0,0,,0,1000,97,1,0,0,1.000000,0,255
+3.,Current,Modbus RTU,,1,3,2,000000000001,00009410,4,1,Unsigned int,0,0,,0,1000,97,1,0,0,1.000000,0,255
+4.,Power,Modbus RTU,,1,3,4,000000000001,00009410,4,1,Unsigned int,0,0,,0,1000,97,1,0,0,1.000000,0,255
+5.,VA,Modbus RTU,,1,3,6,000000000001,00009410,4,1,Unsigned int,0,0,,0,1000,97,1,0,0,1.000000,0,255
+6.,VAR,Modbus RTU,,1,3,8,000000000001,00009410,4,1,Unsigned int,0,0,,0,1000,97,1,0,0,1.000000,0,255
+7.,Power_Factor,Modbus RTU,,1,3,14,000000000001,00009410,2,0,Unsigned int,0,0,,0,1000,97,1,0,0,1.000000,0,255
+8.,Frequency,Modbus RTU,,1,3,15,000000000001,00009410,2,0,Unsigned int,0,0,,0,1000,97,1,0,0,1.000000,0,255
+9.,Import_kWh,Modbus RTU,,1,3,16,000000000001,00009410,4,1,Unsigned int,0,0,,0,1000,97,1,0,0,1.000000,0,255
+10.,Export_kWh,Modbus RTU,,1,3,32,000000000001,00009410,4,1,Unsigned int,0,0,,0,1000,97,1,0,0,1.000000,0,255
+11.,Hours_Counter,Modbus RTU,,1,3,44,000000000001,00009410,4,1,Unsigned int,0,0,,0,600,97,1,0,0,1.000000,0,0
