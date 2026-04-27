@@ -4,8 +4,9 @@
 
 --  Author    : David Haley
 --  Created   : 04/03/2026
---  Last_Edit : 16/03/2026
+--  Last_Edit : 27/04/2026
 
+--  20260427: Updated to use Receive_Blocking.
 --  20260315: Ported to MQTT_Client;
 
 with Ada.Text_IO; use Ada.Text_IO;
@@ -15,14 +16,13 @@ with Ada.Calendar; use Ada.Calendar;
 with Ada.Calendar.Time_Zones; use Ada.Calendar.Time_Zones;
 with Ada.Calendar.Arithmetic; use Ada.Calendar.Arithmetic;
 with Ada.Calendar.Formatting; use Ada.Calendar.Formatting;
+with Ada.Real_Time;
 with Ada.Strings; use Ada.Strings;
 with Ada.Strings.Maps; use Ada.Strings.Maps;
 with Ada.Strings.Maps.Constants; use Ada.Strings.Maps.Constants;
 with Ada.Strings.Fixed; use Ada.Strings.Fixed;
 with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 with Interfaces; use Interfaces;
-with GNATCOLL.Os; use GNATCOLL.Os;
-with GNATCOLL.Buffer; use GNATCOLL.Buffer;
 with GNATCOLL.JSON; use GNATCOLL.JSON;
 with DJH.Date_and_Time_Strings; use DJH.Date_and_Time_Strings;
 with DJH.Events_and_Errors; use DJH.Events_and_Errors;
@@ -156,7 +156,10 @@ package body Data_Logger is
                         Log_Datum : in out Log_Data;
                         Write_At : in out Buffer_Indices) is
 
-         Data_J : String := Receive (Handle, 30.0); -- wait 30 s to receive
+         Data_J : String :=
+           Receive_Blocking (Handle, Ada.Real_Time.Seconds (30),
+                             Ada.Real_Time.Seconds (29));
+          -- wait 30 s to receive with a stale data time out of 28 s
          Prefix : constant String := "Writer - ";
 
       begin -- Writer
